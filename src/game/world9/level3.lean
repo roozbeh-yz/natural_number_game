@@ -15,17 +15,13 @@ $ab = 0$, if and only if at least one of $a$ or $b$ is equal to zero.
 theorem mul_eq_zero_iff (a b : mynat): a * b = 0 ↔ a = 0 ∨ b = 0 :=
 begin [nat_num_game]
   split,
-    swap,
-    intro hab,
-    cases hab,
-      rw hab,
-      rw zero_mul,
-      refl,
-    rw hab,
-    rw mul_zero,
-    refl,
-  intro h,
-  exact eq_zero_or_eq_zero_of_mul_eq_zero a b h,
+  apply eq_zero_or_eq_zero_of_mul_eq_zero,
+  intro p,
+  cases p with p q,
+  rw p,
+  apply zero_mul,
+  rw q,
+  apply mul_zero,
 
   
 end
