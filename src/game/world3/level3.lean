@@ -28,16 +28,13 @@ $$ 1 \times m = m. $$
 lemma one_mul (m : mynat) : 1 * m = m :=
 begin [nat_num_game]
   induction m with d hd,
-  {
-    rw mul_zero,
-    refl,
-  },
-  {
-    rw mul_succ,
-    rw hd,
-    rw succ_eq_add_one,
-    refl,
-  }
+  rw mul_zero,
+  refl,
+  rw mul_succ,
+  rw hd,
+  rw ← succ_eq_add_one,
+  refl,
+
 end
 
 end mynat -- hide
