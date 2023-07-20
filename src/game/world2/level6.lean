@@ -50,10 +50,21 @@ $$ a + b + c = a + c + b. $$
 -/
 lemma add_right_comm (a b c : mynat) : a + b + c = a + c + b :=
 begin [nat_num_game]
-  rw add_assoc,
-  rw add_comm b c,
-  rw ←add_assoc,
+--  rw add_assoc,
+--  rw add_comm b c,
+--  rw ←add_assoc,
+--  refl,
+
+  induction a with b hd,
+  rw zero_add,
+  rw add_comm,
+  rw zero_add,
   refl,
+  rw add_comm (succ(b)) c,
+  rw add_comm,
+  rw ← add_assoc,
+  refl,
+
 end
 
 /-
