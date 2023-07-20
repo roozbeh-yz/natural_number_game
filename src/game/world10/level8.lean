@@ -15,9 +15,10 @@ For all naturals $a$ and $b$, if $a\le b$, then $\operatorname{succ}(a)\le\opera
 lemma succ_le_succ (a b : mynat) (h : a ≤ b) : succ a ≤ succ b :=
 begin [nat_num_game]
   cases h with c hc,
-  use c,
   rw hc,
+  use c,
   rw succ_add,
+  rw succ_eq_succ_iff,
   refl,
   
 
