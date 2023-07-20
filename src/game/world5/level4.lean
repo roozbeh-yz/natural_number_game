@@ -63,11 +63,13 @@ example (P Q R S T U: Type)
 (l : T → U)
 : U :=
 begin
-  apply l,
-  apply j,
-  apply h,
-  exact p,
+--  apply l,
+--  apply j,
+--  apply h,
+--  exact p,
 
-
+  have q := h(p),
+  have t : T := j(q),
+  exact l(j(h(p))),
 
 end
