@@ -30,19 +30,19 @@ $$ t(a + b) = ta + tb. $$
 
 lemma mul_add (t a b : mynat) : t * (a + b) = t * a + t * b :=
 begin [nat_num_game]
-  induction b with d hd,
-  { rewrite [add_zero, mul_zero, add_zero],
-  },
-  {
-    rw add_succ,
-    rw mul_succ,
-    rw hd,
-    rw mul_succ,
-    rw add_assoc, -- ;-)
-    refl,
 
+  induction a with t hd,
+  rw zero_add,
+  rw mul_zero,
+  rw zero_add,
+  refl,
+  rw mul_succ,
+  rw succ_add,
+  rw mul_succ,
+  rw hd,
+  rw add_right_comm,
+  refl,
 
-  }
 end
 
 def left_distrib := mul_add -- the "proper" name for this lemma
