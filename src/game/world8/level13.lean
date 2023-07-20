@@ -20,13 +20,18 @@ $$ n \neq \operatorname{succ}(n). $$
 -/
 lemma ne_succ_self (n : mynat) : n ≠ succ n :=
 begin [nat_num_game]
-  induction n with d hd,
-    apply zero_ne_succ,
-  intro hs,
-  apply hd,
-  apply succ_inj,
-  assumption
+--  induction n with d hd,
+--    apply zero_ne_succ,
+--  intro hs,
+--  apply hd,
+--  apply succ_inj,
+--  assumption
 
+induction n with d,
+exact zero_ne_succ _,
+intro h,
+apply n_ih,
+exact succ_inj h,
 
 end
 
