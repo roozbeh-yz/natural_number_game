@@ -24,9 +24,8 @@ $$a<b\iff\operatorname{succ}(a)\le b.$$
 lemma lt_iff_succ_le (a b : mynat) : a < b ↔ succ a ≤ b :=
 begin [nat_num_game]
   split,
-    exact lt_aux_one a b,
-  exact lt_aux_two a b,
-
+  apply lt_aux_one,
+  apply lt_aux_two,
 
 end
 /-
