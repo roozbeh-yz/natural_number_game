@@ -14,6 +14,7 @@ then $x\le x$.
 -/
 lemma le_refl (x : mynat) : x ≤ x :=
 begin [nat_num_game]
+  rw le_iff_exists_add,
   use 0,
   rw add_zero,
   refl,
