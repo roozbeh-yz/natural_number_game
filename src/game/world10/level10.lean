@@ -15,7 +15,7 @@ For all naturals $a$, $a\le\operatorname{succ}(a).$
 lemma le_succ_self (a : mynat) : a ≤ succ a :=
 begin [nat_num_game]
   use 1,
-  refl,
+  exact succ_eq_add_one _,
   
 
 end
