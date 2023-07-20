@@ -22,11 +22,21 @@ $$a(bc)=b(ac)$$
 -/
 lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=
 begin [nat_num_game]
-  rw ←mul_assoc,
-  rw mul_comm a, 
-  rw mul_assoc,
-  refl,
+--  rw ←mul_assoc,
+--  rw mul_comm a, 
+--  rw mul_assoc,
+--  refl,
 
+  induction a with b hd,
+  rw zero_mul,
+  rw zero_mul,
+  rw mul_zero,
+  refl,
+  rw succ_mul,
+  rw succ_mul,
+  rw mul_add,
+  rw ← hd,
+  simp,
 
 
 end
