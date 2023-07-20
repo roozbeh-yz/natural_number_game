@@ -43,8 +43,8 @@ deduce $a=b$.
 -/
 theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := 
 begin [nat_num_game]
-    exact succ_inj(hs),
-
+  cases hs with a b,
+  refl,
 
 
 end
