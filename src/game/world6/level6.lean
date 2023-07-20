@@ -23,13 +23,19 @@ $$(P\implies(Q\implies R))\implies((P\implies Q)\implies(P\implies R)).$$
 -/
 example (P Q R : Prop) : (P → (Q → R)) → ((P → Q) → (P → R)) :=
 begin
-  intro f,
-  intro h,
-  intro p,
-  have j : Q → R := f p,
-  apply j,
-  apply h,
-  exact p,
+--  intro f,
+--  intro h,
+--  intro p,
+--  have j : Q → R := f p,
+--  apply j,
+--  apply h,
+--  exact p,
 
+  intro h,
+  intro j,
+  intro p,
+  apply (h p),
+  apply j,
+  exact p,
 
 end
