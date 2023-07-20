@@ -25,14 +25,15 @@ then we have $a = b$.
 theorem add_right_cancel (a t b : mynat) : a + t = b + t → a = b :=
 begin [nat_num_game]
   intro h,
-  induction t with d hd,
+  induction t with a hd,
   rw add_zero at h,
   rw add_zero at h,
-  exact h,
+  apply h,
   apply hd,
   rw add_succ at h,
   rw add_succ at h,
-  exact succ_inj(h),  
+  apply succ_inj(h),
+
 end
 
 end mynat -- hide
