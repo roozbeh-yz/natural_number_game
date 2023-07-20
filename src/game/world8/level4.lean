@@ -31,12 +31,11 @@ Two natural numbers are equal if and only if their successors are equal.
 theorem succ_eq_succ_iff (a b : mynat) : succ a = succ b ↔ a = b :=
 begin [nat_num_game]
   split,
-  { exact succ_inj},
---  exact succ_eq_succ_of_eq,
-  { intro H,
-    rw H,
-    refl,
-  }
+  exact succ_inj,
+  intro f,
+  repeat {rw succ_eq_add_one},
+  rw f,
+  refl,
 
 
 end
