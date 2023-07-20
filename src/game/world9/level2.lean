@@ -15,16 +15,14 @@ If $ab = 0$, then at least one of $a$ or $b$ is equal to zero.
 theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :
   a = 0 ∨ b = 0 :=
 begin [nat_num_game]
-  cases a with d,
-    left,
-    refl,
-  cases b with e he,
-    right,
-    refl,
-  exfalso,
-  rw mul_succ at h,
-  rw add_succ at h,
-  exact succ_ne_zero _ h,
+  cases a with n,
+  left,
+  refl,
+  right,
+  rw succ_mul at h,
+  rw add_left_eq_zero h,
+  refl,
+
 end
 
 end mynat -- hide
