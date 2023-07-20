@@ -17,7 +17,8 @@ lemma le_zero (a : mynat) (h : a ≤ 0) : a = 0 :=
 begin [nat_num_game]
   cases h with c hc,
   symmetry at hc,
-  exact add_right_eq_zero hc,
+  have h2 := add_right_eq_zero hc,
+  exact h2,
 
 
 end
