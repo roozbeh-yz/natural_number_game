@@ -37,13 +37,30 @@ $$(a+b)^2=a^2+b^2+2ab.$$
 lemma add_squared (a b : mynat) :
   (a + b) ^ (2 : mynat) = a ^ (2 : mynat) + b ^ (2 : mynat) + 2 * a * b :=
 begin [nat_num_game]
-  rw two_eq_succ_one,
-  rw one_eq_succ_zero,
-  repeat {rw pow_succ},
-  repeat {rw pow_zero},
-  ring,
+--  rw two_eq_succ_one,
+--  rw one_eq_succ_zero,
+--  repeat {rw pow_succ},
+--  repeat {rw pow_zero},
+--  ring,
 
-
+rw two_eq_succ_one,
+rw one_eq_succ_zero,
+induction b with a hd,
+repeat {rw pow_succ},
+repeat {rw pow_zero},
+repeat {rw mul_zero},
+repeat {rw add_zero},
+repeat {rw succ_eq_add_one},
+repeat {rw add_mul},
+repeat {rw mul_add},
+repeat {rw mul_one},
+repeat {rw one_mul},
+repeat {rw zero_mul},
+repeat {rw zero_add},
+repeat {rw add_mul},
+repeat {rw mul_add},
+repeat {rw one_mul},
+simp,
 
 
 
