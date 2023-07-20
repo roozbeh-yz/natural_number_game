@@ -13,18 +13,18 @@ theorem le_total (a b : mynat) : a ≤ b ∨ b ≤ a :=
 begin [nat_num_game]
   revert a,
   induction b with d hd,
-    intro a,
-    right,
-    exact zero_le a,
+  intro a,
+  right,
+  exact zero_le a,
   intro a,
   cases a with a,
-    left,
-    exact zero_le _,
+  left,
+  exact zero_le _,
   cases hd a,
-    left,
-    exact succ_le_succ a d h,
+  left,
+  exact succ_le_succ _ _ h,
   right,
-  exact succ_le_succ d a h,
+  exact succ_le_succ _ _ h,
 
   
 end
