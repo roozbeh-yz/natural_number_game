@@ -17,9 +17,19 @@ begin [nat_num_game]
   intro h,
   cases h with c hc,
   use c,
-  apply succ_inj,
+  --rw succ_add at hc,
+  --apply succ_inj,
+  --exact hc,
+  rw succ_eq_add_one at hc,
+  rw succ_eq_add_one at hc,
+  rw add_comm a at hc,
+  rw add_assoc at hc,
+  rw add_comm at hc,
+  apply add_left_cancel 1 b (a+c),
   rw hc,
-  exact succ_add a c,
+  refl,
+
+
 end
   
 end mynat -- hide
