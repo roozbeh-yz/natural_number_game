@@ -38,19 +38,26 @@ $$ (a + b) + c = a + (b + c). $$
 -/
 lemma add_assoc (a b c : mynat) : (a + b) + c = a + (b + c) :=
 begin [nat_num_game]
-  induction c with d hd,
-  { -- ⊢ a + b + 0 = a + (b + 0)
-    rw add_zero,
-    rw add_zero,
-    refl
-  },
-  { -- ⊢ (a + b) + succ d = a + (b + succ d)
-    rw add_succ,
-    rw add_succ,
-    rw add_succ,
-    rw hd,
-    refl,
-  }
+--  induction c with d hd,
+--  { -- ⊢ a + b + 0 = a + (b + 0)
+--    rw add_zero,
+--    rw add_zero,
+--    refl
+--  },
+--  { -- ⊢ (a + b) + succ d = a + (b + succ d)
+--    rw add_succ,
+--    rw add_succ,
+--    rw add_succ,
+--    rw hd,
+--    refl,
+--  }
+induction c with d hd,
+rw add_zero,
+refl,
+rw add_succ,
+rw hd,
+refl,
+
 end
 
 end mynat -- hide 
