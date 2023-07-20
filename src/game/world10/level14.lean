@@ -20,10 +20,10 @@ If $a\le b$ then for all $t$, $t+a\le t+b$.
 theorem add_le_add_left {a b : mynat} (h : a ≤ b) (t : mynat) :
   t + a ≤ t + b :=
 begin [nat_num_game]
-  cases h with c hc,
-  use c,
-  rw hc,
-  ring,
+  rw add_comm t,
+  rw add_comm t,
+  apply add_le_add_right,
+  apply h,
 
 
 end
