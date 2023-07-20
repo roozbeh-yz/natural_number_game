@@ -19,13 +19,22 @@ then $b = 0$.
 
 lemma eq_zero_of_add_right_eq_self {a b : mynat} : a + b = a → b = 0 :=
 begin [nat_num_game]
-  intro h,
-  apply add_left_cancel a,
-  rw h,
-  rw add_zero,
-  refl,
+--  intro h,
+--  apply add_left_cancel a,
+--  rw h,
+--  rw add_zero,
+--  refl,
 
-
+induction a with b hd,
+rw zero_add,
+intro h,
+exact h,
+intro h,
+rw ← add_zero (succ b) at h,
+rw add_assoc at h,
+rw zero_add at h,
+apply add_left_cancel (succ b) _ _,
+exact h,
 
 
 end
