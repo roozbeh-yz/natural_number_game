@@ -62,13 +62,20 @@ then $b = 0$.
 -/
 lemma add_left_eq_zero {{a b : mynat}} (H : a + b = 0) : b = 0 :=
 begin [nat_num_game]
-  cases b with d,
-  { refl},
-  { rw add_succ at H,
-    exfalso,
-    apply succ_ne_zero (a + d),
-    exact H,
-  },
+--  cases b with d,
+--  { refl},
+--  { rw add_succ at H,
+--    exfalso,
+--    apply succ_ne_zero (a + d),
+--    exact H,
+--  },
+
+cases b with d,
+refl,
+rw add_succ at H,
+exfalso,
+apply succ_ne_zero (a + d),
+exact H,
 
 end
 
