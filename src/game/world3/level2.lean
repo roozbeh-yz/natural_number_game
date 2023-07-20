@@ -31,7 +31,7 @@ begin [nat_num_game]
   rw mul_succ,
   rw mul_zero,
   rw zero_add,
-  refl
+  refl,
 
   
 end
